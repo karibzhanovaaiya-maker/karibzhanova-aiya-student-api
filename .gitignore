@@ -1,0 +1,31 @@
+### Gradle / build output ###
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+HELP.md
+
+### Secrets: never commit passwords or tokens ###
+.env
+*.env
+!.env.example
+*.pem
+*.key
+
+### IDE files ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+.vscode/
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+.classpath
+.project
+.settings
+
+### macOS ###
+.DS_Store
