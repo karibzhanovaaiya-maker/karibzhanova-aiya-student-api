@@ -1,6 +1,6 @@
 # Student API
 
-Spring Boot CRUD service with PostgreSQL, Docker and Jenkins by Karibzhanova Aiya.
+Spring Boot REST API for managing university students, with PostgreSQL, Docker and Jenkins, by Karibzhanova Aiya.
 
 Author: **Karibzhanova Aiya**
 
