@@ -79,6 +79,14 @@ class StudentControllerTest {
     }
 
     @Test
+    void duplicateEmailReturns409() throws Exception {
+        repository.save(new Student("Aiya", "Karibzhanova", "aiya.karibzhanova@iitu.edu.kz", "SE", 3));
+
+        mvc.perform(post("/api/students").contentType(MediaType.APPLICATION_JSON).content(AIYA_JSON))
+                .andExpect(status().isConflict());
+    }
+
+    @Test
     void invalidStudentReturns400() throws Exception {
         mvc.perform(post("/api/students").contentType(MediaType.APPLICATION_JSON)
                         .content("{\"firstName\":\"\",\"lastName\":\"K\",\"email\":\"not-an-email\"}"))

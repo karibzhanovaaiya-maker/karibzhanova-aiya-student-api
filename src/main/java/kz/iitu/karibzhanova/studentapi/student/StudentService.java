@@ -26,6 +26,9 @@ public class StudentService {
     }
 
     public Student create(StudentRequest request) {
+        if (repository.existsByEmail(request.email())) {
+            throw new DuplicateEmailException(request.email());
+        }
         Student student = new Student(request.firstName(), request.lastName(), request.email(),
                 request.major(), request.course());
         return repository.save(student);
@@ -33,6 +36,9 @@ public class StudentService {
 
     public Student update(Long id, StudentRequest request) {
         Student student = findById(id);
+        if (repository.existsByEmailAndIdNot(request.email(), id)) {
+            throw new DuplicateEmailException(request.email());
+        }
         student.setFirstName(request.firstName());
         student.setLastName(request.lastName());
         student.setEmail(request.email());
