@@ -1,0 +1,10 @@
+.git
+.gradle
+build
+.env
+logs
+backups
+scripts
+evidence
+.idea
+.vscode
