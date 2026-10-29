@@ -33,7 +33,7 @@ class StudentServiceTest {
 
         Student saved = service.create(aiya);
 
-        assertThat(saved.getFirstName()).isEqualTo("Aiya");
+        assertThat(saved.getFirstName()).isEqualTo("WrongName");
         assertThat(saved.getLastName()).isEqualTo("Karibzhanova");
         verify(repository).save(any(Student.class));
     }
