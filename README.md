@@ -47,3 +47,17 @@ karibzhanova-aiya-student-api/
 - **Karibzhanova Aiya, feature/karibzhanova-aiya-crud:** the create and update
   operations now check that the email is unique. A duplicate email returns
   `409 Conflict` with a clear JSON message instead of a database error.
+
+## CI/CD with Jenkins
+
+Jenkins job **Karibzhanova_Aiya_Student_API** runs the `Jenkinsfile`:
+
+1. **Checkout**: gets the code from GitHub (read-only deploy key in Jenkins Credentials)
+2. **Build**: compiles the application with the Gradle wrapper
+3. **Test**: runs JUnit tests; the pipeline stops if any test fails
+4. **Docker Build**: builds `karibzhanova-aiya-student-api:v1.1-karibzhanova-aiya`
+5. **Verify**: checks that the image exists and prints its size
+
+Jenkins checks GitHub for new commits every 2 minutes (`pollSCM`) and starts automatically.
+
+Start Jenkins locally: `./jenkins/start-jenkins.sh`, then open http://localhost:8081
