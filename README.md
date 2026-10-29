@@ -1,6 +1,6 @@
 # Student API
 
-Spring Boot CRUD application for managing students.
+REST API for managing university students, documented by Karibzhanova Aiya.
 
 Author: **Karibzhanova Aiya**
 
